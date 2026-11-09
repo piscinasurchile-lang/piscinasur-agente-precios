@@ -1,6 +1,15 @@
 name: PiscinaSur - Prueba manual de precios
 on:
   workflow_dispatch:
+    inputs:
+      max_records:
+        description: 'Cantidad de consultas (2 para prueba, 30 para cobertura total)'
+        required: true
+        default: '2'
+        type: choice
+        options:
+          - '2'
+          - '30'
   push:
     branches: [main]
     paths: ['.github/workflows/collect.yml']
@@ -29,7 +38,7 @@ jobs:
       - name: Consultar proveedores
         run: npm run collect
         env:
-          MAX_RECORDS: '2'
+          MAX_RECORDS: ${{ github.event_name == 'workflow_dispatch' && inputs.max_records || '2' }}
       - name: Generar CSV
         if: always()
         run: node scripts/export-csv.mjs
