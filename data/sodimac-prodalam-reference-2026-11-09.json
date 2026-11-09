@@ -1,0 +1,73 @@
+{
+  "date": "2026-11-09",
+  "currency": "CLP",
+  "scope": "published_reference_not_city_verified",
+  "cities": [
+    "Temuco",
+    "Villarrica",
+    "Valdivia",
+    "Osorno",
+    "Puerto Montt"
+  ],
+  "providers": [
+    "Sodimac",
+    "Prodalam"
+  ],
+  "records": [
+    {
+      "provider": "Sodimac",
+      "product": "Cemento Melón Especial 25 kg",
+      "price": 5090,
+      "vat": "included",
+      "url": "https://empresas.sodimac.cl/sodimac-cl/category/CATG10731/Materiales-de-Construccion",
+      "status": "national_reference"
+    },
+    {
+      "provider": "Sodimac",
+      "product": "Cemento Polpaico 25 kg",
+      "price": 5090,
+      "vat": "included",
+      "url": "https://empresas.sodimac.cl/sodimac-cl/category/CATG10731/Materiales-de-Construccion",
+      "status": "national_reference"
+    },
+    {
+      "provider": "Sodimac",
+      "product": "Malla ACMA C-92 2.6 x 5 m",
+      "price": 22150,
+      "vat": "included",
+      "url": "https://www.sodimac.cl/sodimac-cl/b/precio-malla-acma",
+      "status": "national_reference"
+    },
+    {
+      "provider": "Prodalam",
+      "product": "Cemento Melón Especial 25 kg",
+      "price": 5000,
+      "priceBasis": "derived_from_200_CLP_per_kg_times_25_kg",
+      "vat": "not_confirmed",
+      "url": "https://www.prodalam.cl/productos/WA001313/cementos-especial-melon",
+      "status": "derived_reference"
+    },
+    {
+      "provider": "Prodalam",
+      "product": "Malla ACMA C-92 selección genérica",
+      "price": 24990,
+      "vat": "not_confirmed",
+      "url": "https://www.prodalam.cl/productos/WA000153/mallas-acma",
+      "status": "variant_unconfirmed"
+    },
+    {
+      "provider": "Prodalam",
+      "product": "Malla ACMA C-92 con economía importada 2.60 x 5 m",
+      "price": 29789,
+      "vat": "not_confirmed",
+      "url": "https://www.prodalam.cl/productos/97517-UN/malla-acma-c-92-con-economia-15x15cm-de-260x5m?grupo=WA000153",
+      "status": "variant_specific_reference"
+    }
+  ],
+  "rules": [
+    "No asignar precios nacionales a ciudades",
+    "No comparar variantes distintas de malla",
+    "No usar precio por kilo derivado como cotización de saco",
+    "Validar ciudad o sucursal, IVA y stock antes de integrar cotizador"
+  ]
+}
