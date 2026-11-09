@@ -1,0 +1,42 @@
+name: PiscinaSur - Prueba manual de precios
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: piscinasur-prices
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Instalar dependencias
+        run: npm install --no-audit --no-fund
+      - name: Probar validaciones
+        run: npm test
+      - name: Instalar navegador
+        run: npx playwright install --with-deps chromium
+      - name: Consultar proveedores
+        run: npm run collect
+      - name: Generar CSV
+        if: always()
+        run: node scripts/export-csv.mjs
+      - name: Publicar resultados como artefactos
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: precios-piscinasur-${{ github.run_number }}
+          path: |
+            data/prices.json
+            data/prices.csv
+            data/history/
+            data/evidence/
+          if-no-files-found: warn
+          retention-days: 30
