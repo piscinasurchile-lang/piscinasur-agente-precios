@@ -33,6 +33,9 @@ jobs:
       - name: Generar CSV
         if: always()
         run: node scripts/export-csv.mjs
+      - name: Generar diagnóstico legible
+        if: always()
+        run: node scripts/report.mjs
       - name: Publicar resultados como artefactos
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
@@ -41,6 +44,7 @@ jobs:
           path: |
             data/prices.json
             data/prices.csv
+            data/diagnostico.md
             data/history/
             data/evidence/
           if-no-files-found: warn
