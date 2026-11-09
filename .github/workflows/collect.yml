@@ -1,6 +1,9 @@
 name: PiscinaSur - Prueba manual de precios
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/collect.yml']
 permissions:
   contents: read
 concurrency:
@@ -25,6 +28,8 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Consultar proveedores
         run: npm run collect
+        env:
+          MAX_RECORDS: '2'
       - name: Generar CSV
         if: always()
         run: node scripts/export-csv.mjs
