@@ -27,6 +27,9 @@ try{
   if(records.length>=limit)break outer;
   const context=await browser.newContext({locale:'es-CL',timezoneId:'America/Santiago'});
   const page=await context.newPage();page.setDefaultTimeout(4000);
+  const browserErrors=[];
+  page.on('pageerror',error=>browserErrors.push(String(error.message).slice(0,200)));
+  page.on('requestfailed',request=>browserErrors.push(request.url().slice(0,150)+' '+(request.failure()?.errorText||'')));
   const sku=provider==='Sodimac'?sodSku:proSku;
   let url=base,loc={ok:false,reason:'No se intentó'},reason='',diagnostic=null;
   const file='data/evidence/'+[city,provider,product].join('-').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9-]/gi,'-').toLowerCase()+'.png';
@@ -43,7 +46,9 @@ try{
     reason='Precio sin verificar: requiere ficha exacta, IVA y ubicación persistente';
    }
   }catch(e){reason=String(e.message).slice(0,250)}
-  try{await page.screenshot({path:file,timeout:10000})}catch{}
+  try{await page.screenshot({path:file,fullPage:true,timeout:10000})}catch{}
+  try{await fs.writeFile(file.replace(/\.png$/,'.html'),(await page.content()).slice(0,200000),'utf8')}catch{}
+  if(browserErrors.length)diagnostic={...(diagnostic||{}),browserErrors:browserErrors.slice(0,15)};
   records.push({city,region,product,provider,sku,price:null,currency:'CLP',includesVat:null,status:'unverified',reason,locationSelection:loc,diagnostic,url,checkedAt,screenshot:file});
   console.log(city,provider,product,loc.ok?'ubicación intentada':'sin ubicación');
   await context.close();
