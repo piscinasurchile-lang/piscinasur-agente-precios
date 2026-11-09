@@ -1,0 +1,74 @@
+{
+  "checkedAt": "2026-11-09",
+  "scope": "Public webpage evidence; prices may change; no authenticated city selection for Sodimac or Prodalam",
+  "currency": "CLP",
+  "records": [
+    {
+      "city": "Puerto Montt",
+      "provider": "Weitzler",
+      "product": "Cemento Melón especial 25 kg",
+      "price": 5300,
+      "stock": 270,
+      "branch": "Casa Matriz, Antonio Varas 1112",
+      "source": "https://www.weitzler.cl/producto/cemento-especial-25kg-melon/",
+      "status": "branch_published"
+    },
+    {
+      "city": "Puerto Montt",
+      "provider": "Weitzler",
+      "product": "Cemento Melón especial 25 kg",
+      "price": 5300,
+      "stock": 321,
+      "branch": "Constructor, Presidente Ibáñez 728",
+      "source": "https://www.weitzler.cl/producto/cemento-especial-25kg-melon/",
+      "status": "branch_published"
+    },
+    {
+      "city": "Osorno",
+      "provider": "Weitzler",
+      "product": "Cemento Melón especial 25 kg",
+      "price": 5400,
+      "stock": 1119,
+      "branch": "Bulnes 803",
+      "source": "https://www.weitzler.cl/producto/cemento-especial-25kg-melon/",
+      "status": "branch_published"
+    },
+    {
+      "city": "Puerto Montt",
+      "provider": "Covepa",
+      "product": "Cemento Melón 25 kg",
+      "price": 5840,
+      "branch": "Puerto Montt, retiro en tienda",
+      "source": "https://covepa.cl/product/cemento-melon-25kg",
+      "status": "branch_published"
+    },
+    {
+      "city": null,
+      "provider": "Sodimac",
+      "product": "Cemento Melón especial 25 kg",
+      "price": 5090,
+      "source": "https://empresas.sodimac.cl/sodimac-cl/category/CATG10731/Materiales-de-Construccion",
+      "status": "national_reference",
+      "vatIncluded": true
+    },
+    {
+      "city": null,
+      "provider": "Sodimac",
+      "product": "Malla ACMA C-92 2,6 x 5 m",
+      "price": 22150,
+      "source": "https://empresas.sodimac.cl/sodimac-cl/category/CATG10731/Materiales-de-Construccion",
+      "status": "national_reference",
+      "vatIncluded": true
+    },
+    {
+      "city": null,
+      "provider": "Prodalam",
+      "product": "Malla ACMA C-92 con economía 2,60 x 5 m, condición especial",
+      "price": 24990,
+      "source": "https://www.prodalam.cl/categorias/773/radieres-y-pisos",
+      "status": "national_reference",
+      "vatIncluded": true
+    }
+  ],
+  "warning": "Do not treat national_reference as city price. Branch-published prices are not a live purchase quote. Validate product variants before comparing C-92."
+}
