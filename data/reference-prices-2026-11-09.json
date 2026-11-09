@@ -1,0 +1,23 @@
+{
+  "observedAt": "2026-11-09",
+  "product": "Malla ACMA C-92 2.60 x 5 m",
+  "scope": "precio publicado sin selección validada de ciudad",
+  "status": "reference_only",
+  "currency": "CLP",
+  "prices": [
+    {
+      "provider": "Sodimac",
+      "normalPrice": 22150,
+      "sku": "110327972",
+      "url": "https://www.sodimac.cl/sodimac-cl/articulo/110327948/Malla-Acma-C-92-2%2C6x5-m/110327972",
+      "localityVerified": false
+    },
+    {
+      "provider": "Prodalam",
+      "normalPrice": 24990,
+      "url": "https://www.prodalam.cl/productos/WA000153/mallas-acma",
+      "localityVerified": false
+    }
+  ],
+  "notes": "No sustituye la captura Playwright ni confirma disponibilidad por sucursal. No usar para cotizaciones locales."
+}
