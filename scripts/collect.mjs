@@ -46,8 +46,8 @@ try{
     reason='Precio sin verificar: requiere ficha exacta, IVA y ubicación persistente';
    }
   }catch(e){reason=String(e.message).slice(0,250)}
-  try{await page.screenshot({path:file,fullPage:true,timeout:10000})}catch{}
-  try{await fs.writeFile(file.replace(/\.png$/,'.html'),(await page.content()).slice(0,200000),'utf8')}catch{}
+  try{await page.screenshot({path:file,fullPage:false,timeout:10000})}catch{}
+  // No se conserva HTML completo: puede incluir datos de sesión del proveedor.
   if(browserErrors.length)diagnostic={...(diagnostic||{}),browserErrors:browserErrors.slice(0,15)};
   records.push({city,region,product,provider,sku,price:null,currency:'CLP',includesVat:null,status:'unverified',reason,locationSelection:loc,diagnostic,url,checkedAt,screenshot:file});
   console.log(city,provider,product,loc.ok?'ubicación intentada':'sin ubicación');
